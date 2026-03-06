@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de Privacidade – Money Track</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #f2f2f2;
+        --surface: #ffffff;
+        --border: #e0e0e0;
+        --accent: #407bff;
+        --accent-dim: rgba(64, 123, 255, 0.1);
+        --danger: #e05252;
+        --danger-dim: rgba(224, 82, 82, 0.09);
+        --text: #2a2a2a;
+        --muted: #646464;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 48px 24px 80px;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(64, 123, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(64, 123, 255, 0.04) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+      }
+
+      .wrapper {
+        max-width: 640px;
+        width: 100%;
+        animation: fadeUp 0.6s ease both;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── Header ── */
+      header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+        background: var(--accent-dim);
+        border: 1px solid rgba(64, 123, 255, 0.25);
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+      }
+
+      .brand h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+      }
+
+      .brand p {
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      .updated {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-bottom: 32px;
+        margin-left: 2px;
+      }
+
+      /* ── Card ── */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+
+      .card-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.15rem;
+        font-weight: 400;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text);
+      }
+
+      .card-title .icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        flex-shrink: 0;
+        background: var(--accent-dim);
+      }
+
+      p {
+        line-height: 1.7;
+        color: #4a4a4a;
+        font-size: 0.9rem;
+      }
+
+      /* ── Data list ── */
+      .data-list {
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .data-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 0.88rem;
+      }
+
+      .data-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        flex-shrink: 0;
+        margin-top: 5px;
+      }
+
+      .data-item strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .data-item span {
+        color: var(--muted);
+      }
+
+      /* ── Table ── */
+      .data-table {
+        margin-top: 16px;
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.88rem;
+      }
+
+      .data-table th {
+        text-align: left;
+        color: var(--muted);
+        font-weight: 400;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .data-table td {
+        padding: 11px 0;
+        border-bottom: 1px solid var(--border);
+        color: #4a4a4a;
+        vertical-align: top;
+        font-size: 0.87rem;
+      }
+
+      .data-table td:first-child {
+        color: var(--text);
+        font-weight: 500;
+        width: 35%;
+      }
+      .data-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* ── Highlight box ── */
+      .highlight {
+        background: var(--accent-dim);
+        border: 1px solid rgba(64, 123, 255, 0.18);
+        border-radius: 10px;
+        padding: 14px 18px;
+        margin-top: 14px;
+        font-size: 0.85rem;
+        color: #2a4a8a;
+        line-height: 1.6;
+      }
+
+      /* ── Notice ── */
+      .notice {
+        background: var(--danger-dim);
+        border: 1px solid rgba(224, 82, 82, 0.2);
+        border-radius: 10px;
+        padding: 14px 18px;
+        margin-top: 14px;
+        font-size: 0.85rem;
+        color: #b03030;
+        line-height: 1.6;
+      }
+
+      /* ── Footer ── */
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.78rem;
+        color: var(--muted);
+        line-height: 1.9;
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .divider {
+        height: 1px;
+        background: var(--border);
+        margin: 6px 0 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="logo">💰</div>
+        <div class="brand">
+          <h1>Money Track</h1>
+          <p>Política de Privacidade</p>
+        </div>
+      </header>
+      <p class="updated">Última atualização: março de 2026</p>
+
+      <!-- Intro -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon">📋</div>
+          Introdução
+        </div>
+        <p>
+          Esta Política de Privacidade descreve como o
+          <strong>Money Track</strong> coleta, usa, armazena e protege as
+          informações dos seus usuários. Ao utilizar o aplicativo, você concorda
+          com as práticas descritas neste documento.
+        </p>
+      </div>
+
+      <!-- Dados coletados -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon">📦</div>
+          Dados que coletamos
+        </div>
+        <p>
+          Para o funcionamento do aplicativo, coletamos as seguintes
+          informações:
+        </p>
+
+        <div class="data-list">
+          <div class="data-item">
+            <div class="data-dot"></div>
+            <div>
+              <strong>Dados de conta:</strong>
+              <span
+                >e-mail, senha (armazenada de forma criptografada) e
+                identificadores únicos de usuário (IDs).</span
+              >
+            </div>
+          </div>
+          <div class="data-item">
+            <div class="data-dot"></div>
+            <div>
+              <strong>Perfil:</strong>
+              <span>nome do usuário informado no cadastro.</span>
+            </div>
+          </div>
+          <div class="data-item">
+            <div class="data-dot"></div>
+            <div>
+              <strong>Dados financeiros:</strong>
+              <span
+                >despesas, receitas, transações e suas respectivas categorias
+                cadastradas pelo usuário dentro do app.</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight">
+          Não coletamos dados de localização, contatos, câmera, microfone ou
+          qualquer outra informação do seu dispositivo além das listadas acima.
+        </div>
+      </div>
+
+      <!-- Como usamos -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon">⚙️</div>
+          Como usamos seus dados
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Dado</th>
+              <th>Finalidade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>E-mail e senha</td>
+              <td>Autenticação e acesso à conta do usuário</td>
+            </tr>
+            <tr>
+              <td>Nome</td>
+              <td>Personalização da experiência no app</td>
+            </tr>
+            <tr>
+              <td>IDs de usuário</td>
+              <td>Identificação e vínculo dos dados à conta correta</td>
+            </tr>
+            <tr>
+              <td>Transações e categorias</td>
+              <td>
+                Exibição do histórico financeiro e geração de relatórios dentro
+                do app
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="notice">
+          Seus dados
+          <strong>não são vendidos, alugados ou compartilhados</strong> com
+          terceiros para fins publicitários ou comerciais.
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon">🗄️</div>
+          Armazenamento e segurança
+        </div>
+        <p>
+          Os dados são armazenados em servidores seguros utilizando o
+          <strong>MongoDB</strong>. Adotamos medidas técnicas de segurança para
+          proteger suas informações contra acesso não autorizado, perda ou
+          alteração, incluindo criptografia de senhas e comunicação via HTTPS.
+        </p>
+
+        <div class="highlight" style="margin-top: 14px">
+          Seus dados ficam armazenados enquanto sua conta estiver ativa. Ao
+          excluir a conta, todos os dados pessoais e financeiros são removidos
+          permanentemente, exceto logs de segurança que podem ser mantidos por
+          até 90 dias.
+        </div>
+      </div>
+
+      <!-- Direitos -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon">🔑</div>
+          Seus direitos
+        </div>
+        <p>
+          De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem
+          direito a:
+        </p>
+
+        <div class="data-list" style="margin-top: 14px">
+          <div class="data-item">
+            <div class="data-dot"></div>
+            <div>
+              <strong>Acessar</strong>
+              <span
+                >seus dados armazenados a qualquer momento pelo próprio
+                app.</span
+              >
+            </div>
+          </div>
+          <div class="data-item">
+            <div class="data-dot"></div>
+            <div>
+              <strong>Corrigir</strong>
+              <span>informações incorretas diretamente no app.</span>
+            </div>
+          </div>
+          <div class="data-item">
+            <div class="data-dot"></div>
+            <div>
+              <strong>Excluir</strong>
+              <span
+                >sua conta e todos os seus dados — veja como em nossa
+                <a
+                  href="https://matheus-santos-da-silva.github.io/money-track-delete-account"
+                  style="color: var(--accent)"
+                  >página de exclusão de conta</a
+                >.</span
+              >
+            </div>
+          </div>
+          <div class="data-item">
+            <div class="data-dot"></div>
+            <div>
+              <strong>Revogar consentimento</strong>
+              <span>a qualquer momento, excluindo sua conta.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menores -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon">🔒</div>
+          Menores de idade
+        </div>
+        <p>
+          O Money Track não é destinado a crianças menores de 13 anos. Não
+          coletamos intencionalmente dados de menores. Caso identifique que uma
+          criança forneceu dados sem consentimento, entre em contato para que
+          possamos removê-los.
+        </p>
+      </div>
+
+      <!-- Contato -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon">✉️</div>
+          Contato
+        </div>
+        <p>
+          Dúvidas, solicitações ou reclamações sobre esta política podem ser
+          enviadas para:
+        </p>
+        <div
+          class="highlight"
+          style="
+            margin-top: 12px;
+            text-align: center;
+            font-weight: 500;
+            color: #2a4a8a;
+          "
+        >
+          <a
+            href="mailto:maatheus.santos223@gmail.com"
+            style="color: #407bff; text-decoration: none"
+            >maatheus.santos223@gmail.com</a
+          >
+        </div>
+      </div>
+
+      <!-- Alterações -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon">📝</div>
+          Alterações nesta política
+        </div>
+        <p>
+          Esta política pode ser atualizada periodicamente. Sempre que houver
+          alterações relevantes, notificaremos os usuários pelo app ou por
+          e-mail. O uso contínuo do aplicativo após as alterações implica aceite
+          da nova versão.
+        </p>
+      </div>
+
+      <footer>
+        Money Track &nbsp;·&nbsp; Desenvolvedor independente<br />
+        <a href="./delete-account.html">Exclusão de conta</a> &nbsp;·&nbsp;
+        <a href="mailto:maatheus.santos223@gmail.com"
+          >maatheus.santos223@gmail.com</a
+        >
+      </footer>
+    </div>
+  </body>
+</html>
